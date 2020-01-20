@@ -7,7 +7,7 @@ export const createItem = product => {
   return dispatch => {
     dispatch({type: ACTIONS.CREATE_ITEM});
     axios
-      .post('http://192.168.0.183:3000/products', {product})
+      .post('http://10.0.2.2:3000/products', {product})
       .then(res => {
         if(res.status === 201) {
           dispatch({type: ACTIONS.CREATE_ITEM_SUCCESS});
@@ -23,7 +23,7 @@ export const updateItem = product => {
   return dispatch => {
     dispatch({type: ACTIONS.UPDATE_ITEM});
     axios
-      .put(`http://192.168.0.183:3000/products/${product.id}`, {product})
+      .put(`http://10.0.2.2:3000/products/${product.id}`, {product})
       .then(res => {
         if(res.status === 200) {
           dispatch({type: ACTIONS.UPDATE_ITEM_SUCCESS});

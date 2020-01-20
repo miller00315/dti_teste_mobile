@@ -19,7 +19,7 @@ export const deleteItem = item => {
   return dispatch => {
     dispatch({type: ACTIONS.DELETE_ITEM});
     axios
-      .delete(`http://192.168.0.183:3000/products/${item.id}`)
+      .delete(`http://10.0.2.2:3000/products/${item.id}`)
       .then(res => {
         if(res.status === 200) {
           dispatch({type: ACTIONS.DELETE_ITEM_SUCCESS});
@@ -37,7 +37,7 @@ export const getDataFromDataBase = dispatch => {
   dispatch({type: ACTIONS.FETCH_DATA});
 
   axios
-    .get('http://192.168.0.183:3000/products')
+    .get('http://10.0.2.2:3000/products')
     .then(res => {
       if(res.status === 200) {
         dispatch({type: ACTIONS.FETCH_DATA_SUCCESS, payload: res.data.products.sort(compare)});
